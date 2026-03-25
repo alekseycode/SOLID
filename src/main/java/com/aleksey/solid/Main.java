@@ -6,9 +6,11 @@ public class Main {
         System.out.println("Hello and welcome!");
 
         Employee Aleksey = new Employee("Aleksey", 30.00, 80);
-        PayCalculator payCalculator = new PayCalculator();
+        EmployeeReporter employeeReporter = new EmployeeReporter();
+        EmployeeRepository employeeRepository = new EmployeeRepository();
 
-        System.out.println("Calculate employee pay: ");
-        System.out.println(payCalculator.calculatePay(Aleksey));
+        System.out.println("Full employee report: ");
+        System.out.println(employeeReporter.getReport(Aleksey));
+        System.out.println(employeeRepository.saveInfo(Aleksey));
     }
 }
