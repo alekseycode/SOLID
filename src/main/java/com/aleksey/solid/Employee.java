@@ -14,16 +14,4 @@ public class Employee {
     public String getName() { return name; }
     public double getHourlyRate() { return hourlyRate; }
     public double getHoursWorked() { return hoursWorked; }
-
-//    public double calculatePay() {
-//        return hourlyRate * hoursWorked;
-//    }
-//
-//    public String getEmployeeReport() {
-//        return "Employee: " + name + " | Pay: $" + calculatePay();
-//    }
-//
-//    public void saveToDatabase() {
-//        System.out.println("Saving " + name + "to database...");
-//    }
 }
