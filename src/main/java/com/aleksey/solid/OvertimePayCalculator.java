@@ -2,6 +2,6 @@ package com.aleksey.solid;
 
 public class OvertimePayCalculator implements PayCalculator{
     public double calculatePay(Employee employee) {
-        return employee.getHoursWorked() * employee.getHourlyRate() * 1.5;
+        return 0;
     }
 }

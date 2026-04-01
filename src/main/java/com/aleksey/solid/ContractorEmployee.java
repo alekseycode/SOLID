@@ -1,17 +1,21 @@
 package com.aleksey.solid;
 
-public class ContractorEmployee extends Employee {
+public class ContractorEmployee implements Employee {
+    private String name;
+    private double hourlyRate;
+    private double hoursWorked;
+
     public ContractorEmployee(String name, double hourlyRate, double hoursWorked) {
-        super(name, hourlyRate, hoursWorked);
+       this.name = name;
+       this.hourlyRate = hourlyRate;
+       this.hoursWorked = hoursWorked;
     }
 
-    @Override
     public double calculatePay() {
         return hourlyRate * hoursWorked * 0.85;
     }
 
-    @Override
-    public double calculateBonus() {
-        throw new UnsupportedOperationException("Contractors do not get bonuses. Sorry :/");
+    public String getName() {
+        return name;
     }
 }

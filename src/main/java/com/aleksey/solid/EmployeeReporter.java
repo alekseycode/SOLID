@@ -6,8 +6,8 @@ public class EmployeeReporter {
         FulltimePayCalculator fulltimePayCalculator = new FulltimePayCalculator();
 
         return "Employee: " + employee.getName() + "\n" +
-                " Hourly Rate: " + employee.getHourlyRate() + "/hr\n" +
-                " Hours Worked: " + employee.getHoursWorked() + "\n" +
+               // " Hourly Rate: " + employee.getHourlyRate() + "/hr\n" +
+                //" Hours Worked: " + employee.getHoursWorked() + "\n" +
                 " Total pay: " + fulltimePayCalculator.calculatePay(employee);
     }
 }
