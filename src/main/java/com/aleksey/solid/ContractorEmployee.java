@@ -1,6 +1,6 @@
 package com.aleksey.solid;
 
-public class ContractorEmployee implements Employee, Reportable, Persistable {
+public class ContractorEmployee implements HourlyEmployee {
     private String name;
     private double hourlyRate;
     private double hoursWorked;
@@ -15,19 +15,19 @@ public class ContractorEmployee implements Employee, Reportable, Persistable {
         return hourlyRate * hoursWorked * 0.85;
     }
 
-    public String generateReport() {
-        return "Employee: " + name + "\n"
-                + "  Hourly pay: " + hourlyRate + "\n"
-                + "  Hours worked: " + hoursWorked + "\n"
-                + "  Total pay: " + calculatePay();
-    }
+//    public String generateReport() {
+//        return "Employee: " + name + "\n"
+//                + "  Hourly pay: " + hourlyRate + "\n"
+//                + "  Hours worked: " + hoursWorked + "\n"
+//                + "  Total pay: " + calculatePay();
+//    }
+//
+//    public void saveToDataBase() {
+//        System.out.println("Saving employee " + name + " to database...");
+//        System.out.println("Employee " + name + " successfully saved to database.");
+//    }
 
-    public void saveToDataBase() {
-        System.out.println("Saving employee " + name + " to database...");
-        System.out.println("Employee " + name + " successfully saved to database.");
-    }
-
-    public String getName() {
-        return name;
-    }
+    public String getName() {return name;}
+    public double getHourlyRate() {return hourlyRate;}
+    public double getHoursWorked() {return hoursWorked;}
 }
