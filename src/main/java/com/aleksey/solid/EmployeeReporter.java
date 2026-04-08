@@ -13,6 +13,7 @@ public class EmployeeReporter implements Reportable {
         return "Employee: " + employee.getName() + "\n"
                 + "  Hourly pay: " + employee.getHourlyRate() + "\n"
                 + "  Hours worked: " + employee.getHoursWorked() + "\n"
-                + "  Total pay: " + employee.calculatePay();
+                + "  Total pay: " + employee.calculatePay() + "\n"
+                + "  Bonus: " + bonusCalculator.calculateBonus();
     }
 }
