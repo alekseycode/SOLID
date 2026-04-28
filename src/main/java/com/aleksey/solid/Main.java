@@ -9,11 +9,14 @@ public class Main {
         ContractorEmployee Aleksey = new ContractorEmployee("Aleksey", 30.00, 80);
         FullTimeEmployee Sultan  = new FullTimeEmployee("Sultan", 30.00, 80);
 
-        PayCalculator payCalc = new FulltimePayCalculator();
+        PayCalculator fullTimePayCalc = new FulltimePayCalculator();
+        PayCalculator contractorPayCalc = new ContractorPayCalculator();
 
-        BonusCalculator bonusCalc = new BonusCalculator(Sultan, payCalc);
+        BonusCalculator sultanBonusCalc = new BonusCalculator(Sultan, fullTimePayCalc);
+        Bonusable noBonus = new NoBonus();
 
-        EmployeeReporter employeeReporter = new EmployeeReporter(payCalc, bonusCalc);
+        EmployeeReporter sultanReporter = new EmployeeReporter(fullTimePayCalc, sultanBonusCalc);
+        EmployeeReporter alekseyReporter = new EmployeeReporter(contractorPayCalc, noBonus);
 
         DatabaseSaver databaseSaver = new DatabaseSaver();
 
@@ -26,14 +29,15 @@ public class Main {
             System.out.println("2." + Sultan.getName());
             System.out.println();
             System.out.println("Employee Reports: ");
-            System.out.println(employeeReporter.generateReport(Sultan));
+            System.out.println(sultanReporter.generateReport(Sultan));
             System.out.println();
-            System.out.println(employeeReporter.generateReport(Aleksey));
+            System.out.println(alekseyReporter.generateReport(Aleksey));
             System.out.println();
             System.out.println("Would you like to save employee info? (Y/N)");
             String input2 = scanner.nextLine();
             if (input2.equalsIgnoreCase("y")) {
                 databaseSaver.saveToDataBase(Sultan);
+                databaseSaver.saveToDataBase(Aleksey);
             }
         }
         System.out.println("Goodbye!");
