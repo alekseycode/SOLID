@@ -1,5 +1,5 @@
 package com.aleksey.solid;
 
 public interface Persistable {
-    void saveToDataBase();
+    void saveToDataBase(HourlyEmployee employee);
 }

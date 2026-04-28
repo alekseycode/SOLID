@@ -1,19 +1,19 @@
 package com.aleksey.solid;
 
 public class EmployeeReporter implements Reportable {
-    private HourlyEmployee employee;
-    private BonusCalculator bonusCalculator;
+    private PayCalculator payCalculator;
+    private Bonusable bonusCalculator;
 
-    public EmployeeReporter(HourlyEmployee employee, BonusCalculator bonusCalculator) {
-        this.employee = employee;
+    public EmployeeReporter(PayCalculator payCalculator, Bonusable bonusCalculator) {
+        this.payCalculator = payCalculator;
         this.bonusCalculator = bonusCalculator;
     }
 
-    public String generateReport() {
+    public String generateReport(HourlyEmployee employee) {
         return "Employee: " + employee.getName() + "\n"
                 + "  Hourly pay: " + employee.getHourlyRate() + "\n"
                 + "  Hours worked: " + employee.getHoursWorked() + "\n"
-                + "  Total pay: " + employee.calculatePay() + "\n"
+                + "  Total pay: " + payCalculator.calculatePay(employee) + "\n"
                 + "  Bonus: " + bonusCalculator.calculateBonus();
     }
 }

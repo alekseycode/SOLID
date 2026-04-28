@@ -1,13 +1,15 @@
 package com.aleksey.solid;
 
 public class BonusCalculator implements Bonusable {
-    private ContractorEmployee employee;
+    private FullTimeEmployee employee;
+    private PayCalculator payCalculator;
 
-    public BonusCalculator(ContractorEmployee employee) {
+    public BonusCalculator(FullTimeEmployee employee, PayCalculator payCalculator) {
         this.employee = employee;
+        this.payCalculator = payCalculator;
     }
 
     public double calculateBonus() {
-        return employee.calculatePay() * 0.10;
+        return payCalculator.calculatePay(employee) * 0.10;
     }
 }

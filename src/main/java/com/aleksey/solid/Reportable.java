@@ -1,5 +1,5 @@
 package com.aleksey.solid;
 
 public interface Reportable {
-    String generateReport();
+    String generateReport(HourlyEmployee employee);
 }

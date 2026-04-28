@@ -1,5 +1,5 @@
 package com.aleksey.solid;
 
 public interface PayCalculator {
-     double calculatePay(Employee employee);
+     double calculatePay(HourlyEmployee employee);
 }

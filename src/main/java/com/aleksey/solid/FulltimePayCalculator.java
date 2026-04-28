@@ -1,7 +1,7 @@
 package com.aleksey.solid;
 
 public class FulltimePayCalculator implements PayCalculator{
-    public double calculatePay(Employee employee) {
-        return 0;
+    public double calculatePay(HourlyEmployee employee) {
+        return employee.getHoursWorked() * employee.getHourlyRate();
     }
 }

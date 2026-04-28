@@ -1,7 +1,7 @@
 package com.aleksey.solid;
 
 public class OvertimePayCalculator implements PayCalculator{
-    public double calculatePay(Employee employee) {
+    public double calculatePay(HourlyEmployee employee) {
         return 0;
     }
 }

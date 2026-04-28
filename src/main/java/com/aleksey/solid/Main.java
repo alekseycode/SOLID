@@ -9,8 +9,13 @@ public class Main {
         ContractorEmployee Aleksey = new ContractorEmployee("Aleksey", 30.00, 80);
         FullTimeEmployee Sultan  = new FullTimeEmployee("Sultan", 30.00, 80);
 
-        BonusCalculator alekseyBonusCalculator = new BonusCalculator(Aleksey);
-        EmployeeReporter AlekseyReporter = new EmployeeReporter(Aleksey, alekseyBonusCalculator);
+        PayCalculator payCalc = new FulltimePayCalculator();
+
+        BonusCalculator bonusCalc = new BonusCalculator(Sultan, payCalc);
+
+        EmployeeReporter employeeReporter = new EmployeeReporter(payCalc, bonusCalc);
+
+        DatabaseSaver databaseSaver = new DatabaseSaver();
 
         System.out.println("Hello and welcome!");
         System.out.println("Would you like to see a list of employees? (Y/N)");
@@ -21,14 +26,14 @@ public class Main {
             System.out.println("2." + Sultan.getName());
             System.out.println();
             System.out.println("Employee Reports: ");
-            System.out.println(AlekseyReporter.generateReport());
+            System.out.println(employeeReporter.generateReport(Sultan));
             System.out.println();
-            System.out.println(Sultan.generateReport());
+            System.out.println(employeeReporter.generateReport(Aleksey));
             System.out.println();
             System.out.println("Would you like to save employee info? (Y/N)");
             String input2 = scanner.nextLine();
             if (input2.equalsIgnoreCase("y")) {
-                Sultan.saveToDataBase();
+                databaseSaver.saveToDataBase(Sultan);
             }
         }
         System.out.println("Goodbye!");
