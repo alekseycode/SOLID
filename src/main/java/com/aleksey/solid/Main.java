@@ -10,14 +10,10 @@ public class Main {
         FullTimeEmployee Sultan  = new FullTimeEmployee("Sultan", 30.00, 80);
         SalariedEmployee Ana = new SalariedEmployee("Ana", 66000.00);
 
-        PayCalculator fullTimePayCalc = new FulltimePayCalculator();
-        PayCalculator contractorPayCalc = new ContractorPayCalculator();
+        EmployeeReporterFactory employeeReporterFactory = new EmployeeReporterFactory();
 
-        BonusCalculator sultanBonusCalc = new BonusCalculator(Sultan, fullTimePayCalc);
-        Bonusable noBonus = new NoBonus();
-
-        EmployeeReporter sultanReporter = new EmployeeReporter(fullTimePayCalc, sultanBonusCalc);
-        EmployeeReporter alekseyReporter = new EmployeeReporter(contractorPayCalc, noBonus);
+        EmployeeReporter sultanReporter = employeeReporterFactory.createForFullTime(Sultan);
+        EmployeeReporter alekseyReporter = employeeReporterFactory.createForContractor(Aleksey);
 
         DatabaseSaver databaseSaver = new DatabaseSaver();
 
