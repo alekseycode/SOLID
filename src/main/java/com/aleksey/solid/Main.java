@@ -8,6 +8,7 @@ public class Main {
 
         ContractorEmployee Aleksey = new ContractorEmployee("Aleksey", 30.00, 80);
         FullTimeEmployee Sultan  = new FullTimeEmployee("Sultan", 30.00, 80);
+        SalariedEmployee Ana = new SalariedEmployee("Ana", 66000.00);
 
         PayCalculator fullTimePayCalc = new FulltimePayCalculator();
         PayCalculator contractorPayCalc = new ContractorPayCalculator();
@@ -27,18 +28,24 @@ public class Main {
             System.out.println("Employees: ");
             System.out.println("1." + Aleksey.getName());
             System.out.println("2." + Sultan.getName());
+            System.out.println("3." + Ana.getName());
             System.out.println();
+        }
+        System.out.println("Would you like to see employee reports? (Y/N)");
+        String input2 = scanner.nextLine();
+        if (input2.equalsIgnoreCase("Y")) {
             System.out.println("Employee Reports: ");
             System.out.println(sultanReporter.generateReport(Sultan));
             System.out.println();
             System.out.println(alekseyReporter.generateReport(Aleksey));
             System.out.println();
-            System.out.println("Would you like to save employee info? (Y/N)");
-            String input2 = scanner.nextLine();
-            if (input2.equalsIgnoreCase("y")) {
-                databaseSaver.saveToDataBase(Sultan);
-                databaseSaver.saveToDataBase(Aleksey);
-            }
+            System.out.println("No report for Ana yet :(");
+        }
+        System.out.println("Would you like to save employee info? (Y/N)");
+        String input3 = scanner.nextLine();
+        if (input3.equalsIgnoreCase("y")) {
+            databaseSaver.saveToDataBase(Sultan);
+            databaseSaver.saveToDataBase(Aleksey);
         }
         System.out.println("Goodbye!");
     }
